@@ -7,7 +7,7 @@
  *
  */
 
-#include "ofxpjControl.h"
+#include "ofxPJControl.h"
 
 ofxPJControl::ofxPJControl() 
 {
