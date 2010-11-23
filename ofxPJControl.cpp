@@ -70,6 +70,43 @@ void ofxPJControl::Off()
 	
 }
 
+void sendPJLinkCommand(string command)
+{
+		string msgRx;
+
+		if(!connected)
+		{	
+			pjClient.setVerbose(true);
+			connected = pjClient.setup(IPAddress, PJLINK_PORT);
+			cout << "connection established: " << IPAddress << ":" << PJLINK_PORT << endl;
+
+			while (msgRx.length() < 8) 
+			{
+				msgRx = pjClient.receiveRaw();	
+				if(msgRx.length() > 6)
+				{	
+					cout<< msgRx << endl;
+				}	
+			}	
+
+		}
+		cout << "sending command: "<< command << endl; 
+
+		pjClient.sendRaw(command);
+		msgRx = "";
+		while (msgRx.length() < 8) 
+		{
+			msgRx = pjClient.receiveRaw();	
+
+			cout<< msgRx << endl;
+
+		}
+		pjClient.close();
+		connected = false;
+	
+
+}
+
 void ofxPJControl::nec_On()
 {
 	

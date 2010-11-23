@@ -18,7 +18,7 @@
 	
 	projector1.setup("192.168.1.281",PJLINK_MODE); //Your projectors IP, and if its not NEC try PJLINK
 	projector1.On();
-	projector2.Off(); 
+	projector1.Off(); 
  *
  *
  */
@@ -44,6 +44,7 @@ public:
 	//methods
 	void On(); //command to turn the projector off
 	void Off(); //command to turn the projector on
+	void sendPJLinkCommand(string command); //send any PJLink command to the projector
 	void setup(string IP_add="192.168.0.100",int protocol=PJLINK_MODE); //default 
 	void setProjectorType(int protocol); //NEC_MODE or PJLINK_MODE
 	void setProjectorIP(string IP_add); //the network IP of the projector
