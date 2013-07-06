@@ -1,0 +1,15 @@
+PJLink and NEC projector control addon. By Noah Shibley
+
+  Allows you to turn on or off a projector through the network.
+
+	Step 1. in the testApp.h: 
+	
+	#include "ofxPJControl.h"
+	
+	ofxPJControl projector1;
+	
+  Step 2. in the testApp.cpp:
+	
+	projector1.setup("192.168.1.281",PJLINK_MODE); //Your projectors IP, and if its not NEC try PJLINK
+	projector1.On();
+	projector1.Off(); 
