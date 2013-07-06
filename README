@@ -1,8 +1,23 @@
-PJLink and NEC projector control addon. By Noah Shibley
+Name    : ofxPJControl Library                         
+Author  : Noah Shibley, http://socialhardware.net                       
+Date    : May 5th 2010                                 
+Version : 0.1                                               
+Notes   : PJLink and NEC projector control addon.
+			
+Dependencies:	
+	ofxNetwork addon
 
-Allows you to turn on or off and control a projector through the network.
+Allows you to turn on or off and control a PJLink(most projectors) or NEC projector through the network.
 
-Functions:
+PJLink Specification:
+http://pjlink.jbmia.or.jp/english/data/PJLink%20Specifications100.pdf
+
+"PJLink enables central control of projectors manufactured by different 
+vendors and projectors can be operated by a controller."
+
+------------------------------------------------------
+
+Function list:
         void On(); //command to turn the projector off
 	void Off(); //command to turn the projector on
 	void sendPJLinkCommand(string command); //send any PJLink command to the projector
@@ -11,6 +26,7 @@ Functions:
 	void setProjectorIP(string IP_add); //the network IP of the projector
 	bool getProjectorStatus();
 
+------------------------------------------------------
 
  Example:
 
