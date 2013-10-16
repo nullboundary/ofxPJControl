@@ -70,7 +70,7 @@ void ofxPJControl::Off()
 	
 }
 
-void sendPJLinkCommand(string command)
+void ofxPJControl::sendPJLinkCommand(string command)
 {
 		string msgRx;
 
