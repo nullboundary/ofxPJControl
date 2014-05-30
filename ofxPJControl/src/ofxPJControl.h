@@ -26,8 +26,16 @@
 #ifndef OFXPJCONTROL_H
 #define OFXPJCONTROL_H
 
-
 #include "ofxNetwork.h"
+#include "Poco/MD5Engine.h"
+#include "Poco/DigestStream.h"
+#include "Poco/StreamCopier.h"
+
+using Poco::DigestEngine;
+using Poco::MD5Engine;
+using Poco::DigestOutputStream;
+using Poco::StreamCopier;
+
 
 const int NEC_PORT = 7142; //NEC projector port
 const int PJLINK_PORT = 4352; //PJ Link projector protocol port
@@ -45,9 +53,10 @@ public:
 	void On(); //command to turn the projector off
 	void Off(); //command to turn the projector on
 	void sendPJLinkCommand(string command); //send any PJLink command to the projector
-	void setup(string IP_add="192.168.0.100",int protocol=PJLINK_MODE); //default 
+	void setup(string IP_add="192.168.0.100",int protocol=PJLINK_MODE, string password=""); //default
 	void setProjectorType(int protocol); //NEC_MODE or PJLINK_MODE
 	void setProjectorIP(string IP_add); //the network IP of the projector
+    void setProjectorPassword(string passwd); //password for PJLink authentication
 	bool getProjectorStatus(); //return whether projector is on (true) or off (false)  
 		
 private:
@@ -60,6 +69,7 @@ private:
 	ofxTCPClient pjClient;
 
 	string IPAddress;
+    string password;
 	
 	bool projStatus;
 	string msgTx;
