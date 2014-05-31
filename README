@@ -17,7 +17,7 @@ vendors and projectors can be operated by a controller."
 ------------------------------------------------------
 
 Function list:
-```C++
+```cpp
         void On(); //command to turn the projector off
 	void Off(); //command to turn the projector on
 	void sendPJLinkCommand(string command); //send any PJLink command to the projector
@@ -31,7 +31,7 @@ Function list:
  Example:
 
 Step 1. in the testApp.h: 
-```C++	
+```cpp	
 #include "ofxPJControl.h"	
 ofxPJControl projector1;
 	
