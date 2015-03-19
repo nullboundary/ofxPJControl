@@ -1,9 +1,11 @@
 /*
- *  pjControl.cpp
- *
+ *  pjControl.h
  *
  *  Created by Noah Shibley on 8/9/10.
- *  Copyright 2010 Noah Shibley. All rights reserved.
+ *  Updated by Martial GALLORINI on 19/03/2015
+ *
+	Video projector control class.
+ *
  *
  */
 
