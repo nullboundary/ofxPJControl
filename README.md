@@ -4,6 +4,9 @@ openFrameworks addon to turn ON or OFF video projectors on TCP network :
 - NEC projector
 - CHRISTIE, SANYO and EPSON with raw string commands
 
+Dependency : 
+- ofxNetwork core addon
+
 Original Author  : Noah Shibley, http://socialhardware.net                       
 
 #### PJLink Specification
