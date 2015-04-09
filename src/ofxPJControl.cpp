@@ -62,6 +62,9 @@ void ofxPJControl::On() {
     else if (commMode == SANYO_MODE) {
 		sanyo_On();
 	}
+    else if (commMode == PJDESIGN_MODE) {
+        pjDesign_On();
+    }
 }
 
 void ofxPJControl::Off(){
@@ -77,6 +80,9 @@ void ofxPJControl::Off(){
     else if (commMode == SANYO_MODE) {
 		sanyo_Off();
 	}
+    else if (commMode == PJDESIGN_MODE) {
+        pjDesign_Off();
+    }
 }
 
 void ofxPJControl::sendPJLinkCommand(string command) {
@@ -236,9 +242,22 @@ void ofxPJControl::christie_On() {
 }
 
 void ofxPJControl::christie_Off() {
-	string command = "PWR0";
+	string command = "(PWR0)";
 	sendCommand(command);
 	projStatus = false; //projector off
 }
+
+void ofxPJControl::pjDesign_On() {
+    string command = ":POWR 1\r";
+    sendCommand(command);
+    projStatus = true; //projector on
+}
+
+void ofxPJControl::pjDesign_Off() {
+    string command = ":POWR 0\r";
+    sendCommand(command);
+    projStatus = false; //projector off
+}
+
 
 

@@ -27,11 +27,13 @@ const int NEC_PORT = 7142; //NEC projector port
 const int PJLINK_PORT = 4352; //PJLink projector protocol port
 const int CHRISTIE_PORT = 3002; //CHRISTIE projector protocol port
 const int SANYO_PORT = 100; //SANYO projector protocol port
+const int PJDESIGN_PORT = 1025; //Projectino Design projector protocol port
 
 const int PJLINK_MODE = 0;
 const int NEC_MODE = 1;
 const int CHRISTIE_MODE = 2;
 const int SANYO_MODE = 3;
+const int PJDESIGN_MODE = 4;
 
 
 class ofxPJControl
@@ -62,6 +64,8 @@ private:
 	void sanyo_Off();
 	void christie_On();
 	void christie_Off();
+    void pjDesign_On();
+    void pjDesign_Off();
 
 	ofxTCPClient pjClient;
 

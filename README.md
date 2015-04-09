@@ -3,6 +3,7 @@ openFrameworks addon to turn ON or OFF video projectors over TCP network :
 - PJLink (most projectors)
 - NEC projector
 - CHRISTIE, SANYO and EPSON via raw string commands
+- PROJECTION DESIGN (Now BARCO)
 
 Dependency : 
 - ofxNetwork core addon
