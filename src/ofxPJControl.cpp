@@ -86,7 +86,6 @@ void ofxPJControl::Off(){
 }
 
 void ofxPJControl::sendPJLinkCommand(string command) {
-    cout<<"sent command"<<endl;
 		string msgRx="";
 
         if(!pjClient.isConnected()) {
