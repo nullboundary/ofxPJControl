@@ -89,15 +89,21 @@ void ofxPJControl::sendPJLinkCommand(string command) {
 		string msgRx="";
 
         if(!pjClient.isConnected()) {
-			pjClient.setVerbose(true);
-			connected = pjClient.setup(IPAddress, pjPort,true);
-			ofLogNotice() << "connection established: " << IPAddress << ":" << pjPort << endl;
-            string response = "";
-			while (msgRx.length() < 8) {
-				msgRx = pjClient.receiveRaw();
-			}
-            ofLogNotice() << "received response: " << msgRx << endl;
+            pjClient.setVerbose(true);
+            connected = pjClient.setup(IPAddress, pjPort,true);
+            if(connected){
+                ofLogNotice() << "connection established: " << IPAddress << ":" << pjPort << endl;
+                string response = "";
+                while (msgRx.length() < 8) {
+                    msgRx = pjClient.receiveRaw();
+                }
+                ofLogNotice() << "received response: " << msgRx << endl;
+            } else {
+                ofLogError() << "faled to connect."<<endl;
+            }
 		}
+    
+    if(connected){
         string authToken = "";
 
         //eg. PJLINK 1 604cc14d
@@ -120,6 +126,11 @@ void ofxPJControl::sendPJLinkCommand(string command) {
 
         pjClient.close();
 		//connected = false;
+    } else {
+        ofLogError()<< "still not connected."<<endl;
+        pjClient.close();
+
+    }
 }
 
 void ofxPJControl::sendCommand(string command){
