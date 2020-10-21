@@ -26,16 +26,16 @@ vendors and projectors can be operated by a controller."
 
 #### Method list:
 ```cpp 
-	void On(); //command to turn the projector on
-	void Off(); //command to turn the projector off
-	void sendPJLinkCommand(string command); //send any PJLink command to the projector
+	bool On(); //command to turn the projector on
+	bool Off(); //command to turn the projector off
+	bool sendPJLinkCommand(string command); //send any PJLink command to the projector
 	void setup(string IP_add="192.168.0.100",int protocol=PJLINK_MODE, string password=""); //default
 	void setProjectorType(int protocol); //NEC_MODE, PJLINK_MODE, etc
 	void setProjectorIP(string IP_add); //the network IP of the projector
 	void setProjectorPassword(string passwd); //password for PJLink authentication
 	bool getProjectorStatus(); //return whether projector is on (true) or off (false)  
 	void setProjectorPort(int port); //the network port of the projector
-	void sendCommand(string command); //send any string command to the projector without password authentication
+	bool sendCommand(string command); //send any string command to the projector without password authentication
 	
 ```
 
@@ -70,7 +70,3 @@ projector1.Off();
 
 * [Noah Shibley](https://github.com/nullboundary)
 
-#### Contributors
-
-* [Martial Gallorini](https://github.com/martialgallorini)
-* Krzysztof Golinski
