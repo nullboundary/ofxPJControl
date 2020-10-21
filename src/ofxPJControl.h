@@ -43,39 +43,39 @@ public:
 	~ofxPJControl();
 
 	//methods
-	void On(); //command to turn the projector off
-	void Off(); //command to turn the projector on
-	void sendPJLinkCommand(string command); //send any PJLink command to the projector
-	void setup(string IP_add="192.168.0.100",int port = 4352, int protocol=PJLINK_MODE, string password=""); //default
+	bool On(); //command to turn the projector off
+	bool Off(); //command to turn the projector on
+	bool sendPJLinkCommand(std::string command); //send any PJLink command to the projector
+	void setup(std::string IP_add="192.168.0.100",int port = 4352, int protocol=PJLINK_MODE, std::string password=""); //default
 	void setProjectorType(int protocol); //NEC_MODE or PJLINK_MODE
-	void setProjectorIP(string IP_add); //the network IP of the projector
-    void setProjectorPassword(string passwd); //password for PJLink authentication
+	void setProjectorIP(std::string IP_add); //the network IP of the projector
+    void setProjectorPassword(std::string passwd); //password for PJLink authentication
 	bool getProjectorStatus(); //return whether projector is on (true) or off (false)
 	void setProjectorPort(int port); //the network port of the projector
-	void sendCommand(string command); //send any string command to the projector without password authentication
+	bool sendCommand(std::string command); //send any string command to the projector without password authentication
 
 private:
 
-	void nec_On();
-	void nec_Off();
-	void pjLink_On();
-	void pjLink_Off();
-	void sanyo_On();
-	void sanyo_Off();
-	void christie_On();
-	void christie_Off();
-    void pjDesign_On();
-    void pjDesign_Off();
+	bool nec_On();
+	bool nec_Off();
+	bool pjLink_On();
+	bool pjLink_Off();
+	bool sanyo_On();
+	bool sanyo_Off();
+	bool christie_On();
+	bool christie_Off();
+    bool pjDesign_On();
+    bool pjDesign_Off();
 
 	ofxTCPClient pjClient;
 
-	string IPAddress;
+	std::string IPAddress;
 	int pjPort;
-    string password;
+	std::string password;
 
 	bool projStatus;
-	string msgTx;
-	string msgRx;
+	std::string msgTx;
+	std::string msgRx;
 	bool connected;
 	int commMode;
 
